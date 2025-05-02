@@ -2,10 +2,17 @@ import customtkinter as ctk
 import os
 import subprocess
 import threading
+import sys
 from PIL import Image  # Importar Pillow para carregar imagens
 from customtkinter import CTkImage
 from downloader import download_video
 from tkinter import messagebox
+
+def resource_path(relative_path):
+    """Get the absolute path to a resource, works for dev and PyInstaller."""
+    if hasattr(sys, '_MEIPASS'):
+        return os.path.join(sys._MEIPASS, relative_path)
+    return os.path.join(os.path.abspath("."), relative_path)
 
 class App(ctk.CTk):
     def __init__(self):
@@ -15,7 +22,7 @@ class App(ctk.CTk):
 
         self.title("Clipster")
         self.geometry("450x400")
-        self.iconbitmap("./assets/Clipster.ico")
+        self.iconbitmap(resource_path("assets/Clipster.ico"))
         self.resizable(False, False)
 
         # Video URL input
@@ -27,9 +34,9 @@ class App(ctk.CTk):
         ctk.CTkLabel(self, text="Platform:", font=("Arial", 14)).pack(pady=(10, 5))
 
         # Load icons using Pillow and CTkImage
-        self.youtube_icon = CTkImage(Image.open("./assets/icons/youtube.png"), size=(30, 30))
-        self.tiktok_icon = CTkImage(Image.open("./assets/icons/tiktok.png"), size=(30, 30))
-        self.x_icon = CTkImage(Image.open("./assets/icons/x.png"), size=(30, 30))
+        self.youtube_icon = CTkImage(Image.open(resource_path("assets/icons/youtube.png")), size=(30, 30))
+        self.tiktok_icon = CTkImage(Image.open(resource_path("assets/icons/tiktok.png")), size=(30, 30))
+        self.x_icon = CTkImage(Image.open(resource_path("assets/icons/x.png")), size=(30, 30))
 
         # Create a frame for platform buttons
         platform_frame = ctk.CTkFrame(self)
