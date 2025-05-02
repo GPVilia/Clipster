@@ -1,4 +1,6 @@
-# 🎬 Clipster
+<p align="center">
+  <img src="https://github.com/GPVilia/Clipster/blob/main/src/assets/Clipster_Banner.png?raw=true" alt="Clipster Logo" width="500"/>
+</p>
 
 **Clipster** is a minimalist and user-friendly desktop application to download videos and audio from YouTube, TikTok, and X (formerly Twitter). Built with Python and a modern graphical interface, Clipster is designed for simplicity, speed, and offline use — no Python installation required for end users.
 
@@ -17,7 +19,16 @@
 
 ## 🖼️ Preview
 
-![Clipster UI Preview](https://user-images.githubusercontent.com/your-image-link.png)
+<details>
+<summary>Click to see the Clipster interface</summary>
+
+<br/>
+
+<p align="center">
+  <img src="https://github.com/GPVilia/Clipster/blob/main/src/assets/preview/Preview.png?raw=true" alt="Clipster UI Preview" width="600"/>
+</p>
+
+</details>
 
 ---
 
