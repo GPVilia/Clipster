@@ -42,9 +42,9 @@ class App(ctk.CTk):
 
         # Format selection
         ctk.CTkLabel(self, text="Format:", font=("Arial", 14)).pack(pady=(10, 5))
-        formats = ["MP4 (BEST AUDIO/VIDEO)", "MP4 (COMPATIBLE)", "MP3"]
+        formats = ["MP4 (OPUS/VIDEO)", "MP4 (COMPATIBLE)", "MP3"]
         self.formato_combo = ctk.CTkComboBox(self, values=formats)
-        self.formato_combo.set("MP4 (BEST AUDIO/VIDEO)")
+        self.formato_combo.set("MP4 (OPUS/VIDEO)")
         self.formato_combo.pack()
 
         # Download button
@@ -77,7 +77,7 @@ class App(ctk.CTk):
         if platform not in ["YouTube", "TikTok", "X"]:
             messagebox.showerror("Error", "Please select a valid platform.")
             return
-        if format not in ["MP4 (BEST AUDIO/VIDEO)", "MP4 (COMPATIBLE)", "MP3"]:
+        if format not in ["MP4 (OPUS/VIDEO)", "MP4 (COMPATIBLE)", "MP3"]:
             messagebox.showerror("Error", "Please select a valid format.")
             return
 
