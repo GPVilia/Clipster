@@ -1,0 +1,49 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.env
+*.venv
+venv/
+env/
+ENV/
+.Python
+
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDEs e editores
+.vscode/
+.idea/
+*.swp
+
+# Logs e temporários
+*.log
+*.tmp
+
+# Diretórios de downloads e binários
+downloads/
+src/ffmpeg/ffmpeg.exe
+
+# Arquivos de mídia
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.flv
+*.wmv
+*.m4v
+*.webm
+*.mp3
+
+# Outros
+*.bak
+*.old
