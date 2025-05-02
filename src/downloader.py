@@ -1,4 +1,5 @@
 import os
+import sys
 import yt_dlp
 
 def download_video(url: str, platform: str, format: str, progress_hook=None):
@@ -23,6 +24,7 @@ def download_video(url: str, platform: str, format: str, progress_hook=None):
 
     options = {
         'outtmpl': os.path.join(base_dir, filename_template),
+        'ffmpeg_location': os.path.join(sys._MEIPASS, 'ffmpeg') if hasattr(sys, '_MEIPASS') else os.path.abspath('./ffmpeg'),
         'quiet': True,
         'progress_hooks': [progress_hook] if progress_hook else [],
     }
@@ -30,7 +32,6 @@ def download_video(url: str, platform: str, format: str, progress_hook=None):
     # Configurações específicas para cada formato
     if format == "MP3":
         options.update({
-            'ffmpeg_location': os.path.abspath('./ffmpeg'),
             'format': 'bestaudio/best',
             'postprocessors': [{
                 'key': 'FFmpegExtractAudio',
@@ -40,13 +41,11 @@ def download_video(url: str, platform: str, format: str, progress_hook=None):
         })
     elif format == "MP4 (OPUS/VIDEO)":
         options.update({
-            'ffmpeg_location': os.path.abspath('./ffmpeg'),
             'format': 'bestvideo+bestaudio/best',
             'merge_output_format': 'mp4',
         })
     elif format == "MP4 (COMPATIBLE)":
         options.update({
-            'ffmpeg_location': os.path.abspath('./ffmpeg'),
             'format': 'bestvideo+bestaudio/best',
             'merge_output_format': 'mp4',
             'postprocessors': [{
