@@ -38,7 +38,7 @@ def download_video(url: str, platform: str, format: str, progress_hook=None):
                 'preferredquality': '192',
             }],
         })
-    elif format == "MP4 (BEST AUDIO/VIDEO)":
+    elif format == "MP4 (OPUS/VIDEO)":
         options.update({
             'ffmpeg_location': os.path.abspath('./ffmpeg'),
             'format': 'bestvideo+bestaudio/best',
