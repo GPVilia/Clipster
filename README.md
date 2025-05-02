@@ -1,88 +1,99 @@
-# 📥 Clipster
+# 🎬 Clipster
 
-**Clipster** is a minimalist desktop application that allows users to download videos and audio from YouTube, TikTok, and X. Built with Python and Tkinter, it runs locally, requires no technical knowledge, and is extremely easy to use.  
+**Clipster** is a minimalist and user-friendly desktop application to download videos and audio from YouTube, TikTok, and X (formerly Twitter). Built with Python and a modern graphical interface, Clipster is designed for simplicity, speed, and offline use — no Python installation required for end users.
 
 ---
 
 ## 🚀 Features
-- 📺 Support for **YouTube**, **TikTok**, and **X**
-- 🎵 Download in **MP4 (Fast or Compatible)** and **MP3** formats
-- 🖱️ Intuitive graphical interface
-- 📂 Saves files organized by platform
-- 🧩 Compatible with Windows (executable version available)
+
+- 📥 Download from **YouTube**, **TikTok**, and **X**
+- 🎧 Choose between **MP4 (Fast)**, **MP4 (Compatible)** or **MP3**
+- 📂 Files organized in platform-specific folders
+- 🖼️ Clean and responsive interface with icons
+- ⚙️ Works completely **offline** once built
+- 🧾 No terminal or Python knowledge required to use the `.exe`
 
 ---
 
-## 📦 Requirements
+## 🖼️ Preview
 
-If you're a developer and want to run the project locally, you'll need:
+![Clipster UI Preview](https://user-images.githubusercontent.com/your-image-link.png)
+
+---
+
+## 📦 Requirements for Developers
+
+To run or modify the project locally:
 
 - Python 3.8+
-- Pip
-- [`yt-dlp`](https://github.com/yt-dlp/yt-dlp)
-- `ffmpeg` (already included locally in the project)
+- pip
+- `yt-dlp`
+- `customtkinter`
+- `Pillow`
+- `ffmpeg` (must be downloaded separately)
 
-### Install dependencies:
+Install dependencies:
+
 ```bash
 pip install -r requirements.txt
 ```
 
 ---
 
-## 🖥️ How to run the application
+## 🧪 Run Locally
 
 ```bash
 python src/main.py
 ```
 
-Or open the included `Clipster.exe` (compiled version for Windows).
+Make sure `ffmpeg.exe` is placed in:
+
+```
+src/ffmpeg/ffmpeg.exe
+```
 
 ---
 
-## 🔧 How to build the executable
+## 🔧 Build the Executable
+
+You can build the `.exe` using PyInstaller:
 
 ```bash
-pyinstaller --onefile --windowed --add-binary "src/ffmpeg/ffmpeg.exe;ffmpeg" src/main.py
+pyinstaller --noconfirm --onefile --windowed --icon="src/assets/Clipster.ico" --add-data "src/assets/Clipster.ico;assets" --add-binary "src/ffmpeg/ffmpeg.exe;ffmpeg" src/main.py
+```
+
+Output is saved to the `dist/` folder. Rename `main.exe` to `Clipster.exe`.
+
+---
+
+## 📁 Project Structure
+
+```
+src/
+├── assets/
+│   ├── icons/
+│   │   └── *.png
+│   └── Clipster.ico
+├── downloads/
+│   ├── youtube/
+│   ├── tiktok/
+│   └── x/
+├── ffmpeg/
+│   └── ffmpeg.exe
+├── downloader.py
+└── main.py
 ```
 
 ---
 
-## 📁 Project structure
+## 📜 License
 
-```
-project/
-├── src/
-│   ├── assets/
-│   │   └── icons/
-│   │       └── Clipster.ico
-│   ├── downloads/
-│   │   ├── youtube/
-│   │   ├── tiktok/
-│   │   └── x/
-│   ├── ffmpeg/
-│   │   └── ffmpeg.exe
-│   ├── downloader.py
-│   └── main.py
-├── Clipster.exe (optional)
-```
+This project is licensed under the MIT License.  
+Feel free to use, modify, and distribute with attribution.
 
 ---
 
-## ⚖️ License
+## ✨ Author
 
-This project is licensed under the **MIT License**.  
-You are free to use, modify, and share the code, but must retain the copyright notice.
-
-🔗 See more in [LICENSE](./LICENSE)
-
----
-
-## 🤝 Contributions
-
-Pull requests are welcome! Feel free to suggest new features or improvements.
-
----
-
-## ✨ Created by
-
-**Gustavo** – Systems and Computing Management student 👨‍💻  
+**Gustavo V.** – Student of Systems and Computing Management @ UATLA 👨‍💻  
+Follow or contribute at: [https://github.com/GPVilia/Clipster](https://github.com/GPVilia/Clipster)
