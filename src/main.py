@@ -149,16 +149,24 @@ class App(ctk.CTk):
         if not url:
             messagebox.showerror("Error", "Please enter a valid URL.")
             return
-        if platform not in ["YouTube", "TikTok", "X"]:
-            messagebox.showerror("Error", "Please select a valid platform.")
+
+        # Validate platform based on URL
+        if platform == "YouTube" and not (url.startswith("https://www.youtube.com/") or url.startswith("https://youtu.be/")):
+            messagebox.showerror("Error", "The URL does not match the selected platform (YouTube).")
             return
+        if platform == "TikTok" and not url.startswith("https://www.tiktok.com/"):
+            messagebox.showerror("Error", "The URL does not match the selected platform (TikTok).")
+            return
+        if platform == "X" and not url.startswith("https://x.com/"):
+            messagebox.showerror("Error", "The URL does not match the selected platform (X).")
+            return
+
         if format not in ["MP4 (OPUS/VIDEO)", "MP4 (COMPATIBLE)", "MP3"]:
             messagebox.showerror("Error", "Please select a valid format.")
             return
 
         # Start the download in a separate thread
         threading.Thread(target=self.download_thread, args=(url, platform, format), daemon=True).start()
-
 
     def download_thread(self, url, platform, format):
         """
