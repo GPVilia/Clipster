@@ -38,7 +38,7 @@ class App(ctk.CTk):
 
         # Main window configuration
         self.title("Clipster")
-        self.geometry("400x458")
+        self.geometry("400x428")
         self.iconbitmap(resource_path("assets/Clipster.ico"))
         self.resizable(False, False)
 
@@ -47,8 +47,11 @@ class App(ctk.CTk):
         header_frame.pack(pady=(10, 3), padx=20, anchor="w")
 
         # Application logo
-        logo_image = CTkImage(Image.open(resource_path("assets/Clipster_Banner.png")), size=(150, 80))
-        ctk.CTkLabel(header_frame, image=logo_image, text="").pack(side="left", padx=(0,0))
+        logo_image = CTkImage(Image.open(resource_path("assets/Clipster.png")), size=(50, 50))
+        ctk.CTkLabel(header_frame, image=logo_image, text="").pack(side="left", padx=(0, 10))
+
+        # Application title
+        ctk.CTkLabel(header_frame, text="CLIPSTER", font=("Arial", 20, "bold"), anchor="w").pack(side="left")
 
         # Input field for video URL
         ctk.CTkLabel(self, text="Video URL:", font=("Poppins", 14, "bold"), anchor="w").pack(pady=(0, 5), padx=20, anchor="w")
